@@ -3,7 +3,7 @@ __pycache__/
 .venv/
 venv/
 data/faiss_index/
-data/*.pdf
-data/*.csv
+data/faiss_index_subido/
+data/documento_subido.*
 !data/.gitkeep
 .env

@@ -9,22 +9,25 @@ def get_embeddings():
     return OllamaEmbeddings(model=config.EMBEDDING_MODEL)
 
 
-def build_vector_store(chunks, save: bool = True):
+def build_vector_store(chunks, save: bool = True, path: str = None):
+    path = path or config.VECTOR_STORE_PATH
     embeddings = get_embeddings()
     vs = FAISS.from_documents(chunks, embeddings)
     if save:
-        os.makedirs(os.path.dirname(config.VECTOR_STORE_PATH), exist_ok=True)
-        vs.save_local(config.VECTOR_STORE_PATH)
-        print(f"Índice guardado en '{config.VECTOR_STORE_PATH}'.")
+        os.makedirs(path, exist_ok=True)
+        vs.save_local(path)
+        print(f"Índice guardado en '{path}'.")
     return vs
 
 
-def load_vector_store():
+def load_vector_store(path: str = None):
+    path = path or config.VECTOR_STORE_PATH
     embeddings = get_embeddings()
     return FAISS.load_local(
-        config.VECTOR_STORE_PATH, embeddings, allow_dangerous_deserialization=True
+        path, embeddings, allow_dangerous_deserialization=True
     )
 
 
-def vector_store_exists() -> bool:
-    return os.path.exists(config.VECTOR_STORE_PATH)
+def vector_store_exists(path: str = None) -> bool:
+    path = path or config.VECTOR_STORE_PATH
+    return os.path.exists(path)

@@ -1,12 +1,14 @@
 """Genera embeddings y arma/carga el índice vectorial FAISS."""
 import os
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import OllamaEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import config
 
 
 def get_embeddings():
-    return OllamaEmbeddings(model=config.EMBEDDING_MODEL)
+    return GoogleGenerativeAIEmbeddings(
+        model=config.EMBEDDING_MODEL, google_api_key=config.GOOGLE_API_KEY
+    )
 
 
 def build_vector_store(chunks, save: bool = True, path: str = None):

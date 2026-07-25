@@ -1,7 +1,10 @@
 """Configuración del agente RAG."""
+import os
 
-LLM_MODEL = "gemma4:e2b"          # genera las respuestas
-EMBEDDING_MODEL = "embeddinggemma"  # convierte texto a vectores
+LLM_MODEL = "gemini-flash-latest"           # genera las respuestas
+EMBEDDING_MODEL = "gemini-embedding-001"  # convierte texto a vectores
+
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 DOCUMENT_PATH = "data/documento.pdf"
 VECTOR_STORE_PATH = "data/faiss_index"

@@ -1,5 +1,5 @@
 """Arma la cadena RAG: retriever -> prompt -> Gemma -> respuesta."""
-from langchain_ollama import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -21,7 +21,9 @@ def format_docs(docs) -> str:
 
 
 def build_rag_chain(vector_store):
-    llm = ChatOllama(model=config.LLM_MODEL, temperature=0.2)
+    llm = ChatGoogleGenerativeAI(
+        model=config.LLM_MODEL, google_api_key=config.GOOGLE_API_KEY
+    )
     retriever = vector_store.as_retriever(search_kwargs={"k": config.TOP_K})
     prompt = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
 

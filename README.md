@@ -56,6 +56,6 @@ Probé el agente con un documento de ejemplo que tiene información de una empre
 
 Desplegado en **Streamlit Community Cloud**, conectado directamente a este repositorio de GitHub. La API key de Gemini la configuré como "Secret" en la plataforma (no está en el código).
 
-URL pública: *(https://challengealura-dfqt79nlz4wpfuuditj5pa.streamlit.app/)*
+URL pública: https://challengealura-dfqt79nlz4wpfuuditj5pa.streamlit.app/
 
 ![Captura de la app funcionando](CapturaDeploy.png)

@@ -28,7 +28,7 @@ def main():
         try:
             print(f"\nRespuesta: {chain.invoke(question)}\n")
         except Exception as e:
-            print(f"\nError: {e}\n¿Está Ollama corriendo? Probá: ollama serve\n")
+            print(f"\nError: {e}\nRevisá que GOOGLE_API_KEY esté configurada y que tengas conexión a internet.\n")
 
 
 if __name__ == "__main__":

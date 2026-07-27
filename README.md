@@ -26,7 +26,7 @@ La app carga por defecto el documento `data/documento.pdf` (documentación de un
 ## Cómo correrlo localmente
 
 ```bash
-# Conseguir una API key gratis en https://aistudio.google.com/apikey (no pide tarjeta)
+# Conseguir una API key gratis en https://aistudio.google.com/apikey
 # Windows PowerShell:
 $env:GOOGLE_API_KEY="tu-api-key"
 

@@ -12,8 +12,8 @@ import config
 
 UPLOADED_INDEX_PATH = "data/faiss_index_subido"
 
-st.set_page_config(page_title="Agente RAG", page_icon="🤖")
-st.title("🤖 Agente que responde sobre tu documento")
+st.set_page_config(page_title="NexusCorp | Asistente Virtual", page_icon="🏢")
+st.title("🏢 Asistente Virtual NexusCorp")
 
 # --- Documento por defecto: se carga solo la primera vez que se abre la app ---
 if "vector_store" not in st.session_state:
